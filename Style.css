@@ -1,0 +1,346 @@
+/* 1. Paksa HTML dan BODY agar berukuran 100% penuh layar dari awal */
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Reset box-sizing untuk semua elemen */
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+/* 2. Mengatur Container Background Utama */
+.background-container {
+    min-height: 100vh;
+    width: 100%;
+    
+    /* GANTI 'bg.jpg' sesuai dengan nama & format file gambar Anda */
+    background-image: url('Images/bg.jpg'); 
+    
+    /* Memastikan gambar langsung menutup seluruh layar tanpa celah */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
+    /* Mengatur posisi konten portofolio di tengah layar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Kotak Pembungkus Portofolio Utama */
+.portfolio-card {
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 900px;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* WADAH MENU NAVIGASI */
+.nav-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 20px;
+}
+
+/* DESAIN TOMBOL NAVIGASI */
+.nav-btn {
+    background: transparent;
+    border: 1px solid #38bdf8;
+    color: #38bdf8;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+    background: rgba(56, 189, 248, 0.2);
+    transform: translateY(-2px);
+}
+
+.nav-btn.active {
+    background: #38bdf8;
+    color: #0f172a;
+    box-shadow: 0 0 12px rgba(56, 189, 248, 0.5);
+}
+
+/* DESAIN AREA DESKRIPSI */
+.content-area {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    min-height: 200px;
+}
+
+.content-area h2 {
+    color: #38bdf8;
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+}
+
+.content-area p {
+    color: #e2e8f0;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+/* GAYA KHUSUS UNTUK KONTEN EXPERIENCE */
+.experience-item {
+    margin-bottom: 15px;
+}
+
+.experience-item h3 {
+    color: #38bdf8;
+    font-size: 1.2rem;
+    margin-bottom: 4px;
+}
+
+.job-company {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+}
+
+.experience-item ul {
+    margin-left: 20px;
+    color: #e2e8f0;
+}
+
+.experience-item li {
+    margin-bottom: 6px;
+    line-height: 1.5;
+}
+
+/* Garis Pemisah Garis Tipis Transparan */
+.divider {
+    border: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 20px 0;
+}
+/* --- GAYA DAN ANIMASI FOTO ABOUT ME --- */
+
+/* Menjajarkan foto dan teks secara berdampingan */
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    text-align: left;
+    flex-wrap: wrap; /* Supaya di layar HP/layar kecil foto berpindah ke atas teks */
+}
+/* Bingkai Foto Lingkaran Beranimasi Melayang */
+.profile-frame {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    margin: 0 auto;
+    border-radius: 50%; /* Membuat bingkai menjadi lingkaran */
+    padding: 4px;
+    background: linear-gradient(45deg, #38bdf8, #818cf8); /* Warna garis tepi gradasi */
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+    
+    /* Menjalankan animasi floatAnimation selama 3 detik terus menerus */
+    animation: floatAnimation 3s ease-in-out infinite; 
+}
+
+/* Mengatur gambar di dalam bingkai */
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Agar foto terpotong pas dan tidak gepeng */
+    border-radius: 50%;
+}
+
+.about-text {
+    flex: 1;
+    min-width: 250px;
+}
+
+.about-text p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+/* ATURAN ANIMASI GERAKAN NAIK TURUN (FLOAT) */
+@keyframes floatAnimation {
+    0% {
+        transform: translateY(0px);
+        box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+    }
+    50% {
+        transform: translateY(-8px); /* Melayang 8px ke atas */
+        box-shadow: 0 10px 25px rgba(56, 189, 248, 0.7); /* Efek pendaran cahaya menguat */
+    }
+    100% {
+        transform: translateY(0px);
+        box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+    }
+}
+/* LAYOUT TEKS & GAMBAR SAMPING */
+.experience-content-wrapper {
+    display: flex;
+    align-items: flex-start; /* [PERBAIKAN 1] Sejajarkan ke atas agar tidak ketarik ke tengah/bawah */
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.exp-list {
+    flex: 1; /* Teks mengambil sisa ruang utama */
+}
+
+/* GALERI GAMBAR BULAT DI SAMPING */
+.experience-side-gallery {
+    display: flex;
+    flex-direction: column; /* Tersusun vertikal ke bawah */
+    gap: 10px;              /* [PERBAIKAN 2] Jarak antar foto sedikit diperkecil */
+    align-items: center;
+    justify-content: flex-start;
+    flex-shrink: 0;         /* [PERBAIKAN 3] Mencegah galeri tergencet atau terdorong keluar */
+}
+
+/* STYLE BINGKAI BULAT HIASAN */
+.exp-img-circle {
+    width: 75px;            /* [PERBAIKAN 4] Diturunkan dari 110px ke 75px agar 3 foto pas berada di samping teks */
+    height: 75px;           /* Diturunkan dari 110px ke 75px */
+    border-radius: 50%;     /* Membikin gambar jadi bulat sempurna */
+    object-fit: cover;
+    border: 2px solid #38bdf8; /* Ukuran border disesuaikan ke 2px */
+    box-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* EFEK HOVER PADA FOTO BULAT */
+.exp-img-circle:hover {
+    transform: scale(1.15); /* Membesar sedikit lebih responsif saat dihover */
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.8);
+    cursor: pointer;
+}
+
+/* RESPONSIF UNTUK TAMPILAN HP */
+@media (max-width: 600px) {
+    .experience-content-wrapper {
+        flex-direction: column;
+    }
+    
+    .experience-side-gallery {
+        flex-direction: row; /* Berubah jadi horizontal jika dibuka di layar HP */
+        flex-wrap: wrap; /*jika foto banyak bisa langsung ke garis berikutnya */
+        justify-content: center;
+        margin-top: 10px;
+    }
+}
+/* TAMPILAN POPUP MODAL LIGHTBOX */
+.modal {
+    display: none; /* Sembunyi secara default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Latar belakang gelap transparan */
+    backdrop-filter: blur(5px); /* Efek blur di latar belakang */
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* GAMBAR PERBESAR DI TENGAH LAYAR */
+.modal-content {
+    max-width: 85%;
+    max-height: 85%;
+    border-radius: 12px;
+    border: 3px solid #38bdf8;
+    box-shadow: 0 0 30px rgba(56, 189, 248, 0.6);
+    animation: zoomIn 0.3s ease;
+}
+
+/* TOMBOL SILANG (CLOSE) */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-btn:hover {
+    color: #38bdf8;
+}
+
+/* ANIMASI MUNCUL */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+/* MEMBERIKAN WARNA TEKS TERANG AGAR KONTRAS DENGAN BACKGROUND DARK */
+.skills-container {
+    color: #f1f5f9; /* Warna teks putih keperakan */
+}
+
+.skill-category h3 {
+    color: #38bdf8; /* Warna judul kategori kebiruan/cyan terang */
+    margin-bottom: 10px;
+}
+
+.skill-category ul li {
+    color: #e2e8f0; /* Warna teks bullet point terang */
+    margin-bottom: 6px;
+}
+
+/* KOTAK KATEGORI SKILLS DENGAN GAMBAR SAMPING */
+.skill-category-wrapper {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+/* GALERI 4 GAMBAR HORIZONTAL DI BAGIAN SKILLS */
+.skills-photo-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.skills-photo-gallery .exp-img-circle {
+    width: 80px;
+    height: 80px;
+}
+.skills-text-group {
+    flex: 1;
+}

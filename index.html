@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Saya</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="background-container">
+        
+        <!-- Wadah utama untuk navigasi dan deskripsi -->
+        <div class="portfolio-card">
+            
+            <!-- MENU NAVIGASI -->
+            <nav class="nav-menu">
+                <button class="nav-btn active" onclick="showContent('home', this)">Home</button>
+                <button class="nav-btn" onclick="showContent('aboutme', this)">About Me</button>
+                <button class="nav-btn" onclick="showContent('experience', this)">Experience</button>
+                <button class="nav-btn" onclick="showContent('skills', this)">Skills</button>
+                <button class="nav-btn" onclick="showContent('project', this)">Project</button>
+                <button class="nav-btn" onclick="showContent('education', this)">Education</button>
+                <button class="nav-btn" onclick="showContent('cv', this)">Download CV</button>
+                <button class="nav-btn" onclick="showContent('contact', this)">Contact</button>
+            </nav>
+
+            <!-- AREA DESKRIPSI (KONTEN) -->
+            <div class="content-area">
+                <h2 id="content-title">Home</h2>
+                <div id="content-desc">
+                    <p>Selamat datang di portofolio saya! Silakan pilih menu di atas untuk melihat detail informasi.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- WADAH POPUP FOTO PERBESAR (MODAL LIGHTBOX) -->
+    <div id="image-modal" class="modal" onclick="closeModal()">
+        <span class="close-btn">&times;</span>
+        <img class="modal-content" id="modal-img">
+    </div>
+
+    <!-- Menghubungkan file javascript di akhir body -->
+    <script src="script.js"></script>
+</body>
+</html>
